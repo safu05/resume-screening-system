@@ -1,0 +1,25 @@
+{
+  "project_title": "Resume Screening System",
+  "level": "Intermediate",
+  "project_type": "NLP Classification",
+  "task_kind": "nlp_classification",
+  "dataset_file": "text_dataset.csv",
+  "dataset_shape": [
+    480,
+    4
+  ],
+  "target_column": "category",
+  "metrics": {
+    "Accuracy": 1.0,
+    "Precision_weighted": 1.0,
+    "Recall_weighted": 1.0,
+    "F1_weighted": 1.0
+  },
+  "charts": [
+    "charts\\01_text_length_distribution.png",
+    "charts\\02_label_distribution.png",
+    "charts\\03_confusion_matrix.png",
+    "charts\\04_top_text_features.png"
+  ],
+  "generated_at": "2026-11-20"
+}
