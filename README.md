@@ -54,7 +54,7 @@ python main.py
 ### Option 2: Jupyter Notebook
 ```bash
 pip install -r requirements.txt
-jupyter notebook "Resume Screening System.ipynb"
+python -m notebook "Resume Screening System.ipynb"
 ```
 
 The notebook has already been executed and saved with its outputs.
