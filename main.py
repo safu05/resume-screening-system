@@ -154,7 +154,33 @@ def main():
     with open("project_summary.json", "w", encoding="utf-8") as f:
         json.dump(summary_payload, f, indent=2)
     print("\nUpdated project_summary.json successfully.")
+
+    # 10. Save trained model
+    import joblib
+    model_path = Path("resume_screening_model.joblib")
+    joblib.dump(model, model_path)
+    print(f"Saved trained model to {model_path}")
+
+    # 11. Sample Inferences Demo
+    print("\n" + "=" * 60)
+    print("Sample Resume Predictions Demo:")
     print("=" * 60)
+    sample_resumes = [
+        "Experienced in Python, Pandas, machine learning, statistics, data models, and Scikit-learn.",
+        "Cloud architect proficient in AWS, Azure, Docker, Kubernetes, cloud deployment, and DevOps.",
+        "Cybersecurity analyst skilled in network security, firewall configuration, threat analysis, and vulnerability management.",
+        "Frontend developer specialized in HTML, CSS, JavaScript, React, Node, and backend API integration.",
+        "Business Analyst with expertise in Excel, SQL, Power BI dashboards, business requirements, and reporting."
+    ]
+
+    for i, text in enumerate(sample_resumes, 1):
+        prediction = model.predict([text])[0]
+        probs = model.predict_proba([text])[0]
+        confidence = max(probs) * 100
+        print(f"\n[Resume {i}]: \"{text[:75]}...\"")
+        print(f" -> Predicted Category: {prediction} (Confidence: {confidence:.2f}%)")
+
+    print("\n" + "=" * 60)
     print("Execution complete!")
     print("=" * 60)
 
